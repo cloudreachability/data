@@ -1,2 +1,2 @@
-# data
+# Data
 Helpful data for cloud reachability research
