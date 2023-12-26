@@ -8,8 +8,6 @@ fi
 
 input_file=$1
 base_name=$(basename "$input_file" .csv)
-
-# Get current date and time for the filename
 current_datetime=$(date +"%Y%m%d_%H%M%S")
 output_file="${base_name}.updated_${current_datetime}.csv"
 
@@ -25,6 +23,13 @@ extract_domain() {
     echo "$url" | awk -F[/:] '{print $4}'
 }
 
+# Function to get the IP address using dig, filtering out non-IP lines
+get_ip_address() {
+    local domain=$1
+    # Get the IP address, filter out non-IP lines
+    dig +short "$domain" | grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}' | head -n 1
+}
+
 # Process each line in the input file
 while IFS=',' read -r url rest; do
     # Remove the trailing semicolon
@@ -34,10 +39,10 @@ while IFS=',' read -r url rest; do
     domain=$(extract_domain "$url")
 
     # Get the IP address of the domain
-    ip_address=$(dig +short "$domain" | head -n 1)
+    ip_address=$(get_ip_address "$domain")
 
-    # Check if the IP address was found
-    if [ -z "$ip_address" ] || ! curl --head --silent --fail "$url" > /dev/null; then
+    # Check if the IP address was found and if it's reachable via ping
+    if [ -z "$ip_address" ] || ! ping -c 2 "$ip_address" &> /dev/null; then
         ip_address="0"
     fi
 
