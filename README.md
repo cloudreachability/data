@@ -1,5 +1,6 @@
-# Data
-Helpful data for cloud reachability research.
+# Cloud Endpoints
+
+Cloud target endpoints for reachability research.
 
 The repository contains the following files:
 
