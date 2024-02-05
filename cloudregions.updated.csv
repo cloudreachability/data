@@ -23,7 +23,7 @@ https://ec2.eu-west-3.amazonaws.com/ping,AWS,Paris,Paris,France,52.46.64.63;
 https://ec2.eu-north-1.amazonaws.com/ping,AWS,Stockholm,Stockholm,Sweden,52.46.192.128;
 https://ec2.me-south-1.amazonaws.com/ping,AWS,Bahrain,Manama,Bahrain,99.82.128.102;
 https://ec2.af-south-1.amazonaws.com/ping,AWS,Cape Town,Cape Town,South Africa,99.78.132.94;
-null,AWS,Cape Town,Cape Town,South Africa,18.228.58.142;
+null,AWS,São Paulo,São Paulo,Brazil,18.228.58.142;
 https://ec2.sa-east-1.amazonaws.com/ping,AWS,São Paulo,São Paulo,Brazil,177.72.245.178;
 null,AWS,São Paulo,São Paulo,Brazil,177.72.245.178;
 https://feitsui-bom.oss-ap-south-1.aliyuncs.com/ping.html,Alibaba,Mumbai,Mumbai,India,149.129.143.66;
